@@ -1,0 +1,14 @@
+$rubik-src: '~@/assets/fonts/rubik/';
+$rubik-name: 'Rubik';
+
+@font-face {
+  font-family: $rubik-name;
+  src: url('#{$rubik-src}#{$rubik-name}.svg##{$rubik-name}-Light') format('svg'),
+      url('#{$rubik-src}#{$rubik-name}.ttf') format('truetype'),
+      url('#{$rubik-src}#{$rubik-name}.woff') format('woff'),
+      url('#{$rubik-src}#{$rubik-name}.woff2') format('woff2'),
+      url('#{$rubik-src}#{$rubik-name}.eot'),
+      url('#{$rubik-src}#{$rubik-name}.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
