@@ -23,6 +23,22 @@ module.exports = {
         semi: false,
       },
     ],
+    'require-jsdoc': [
+      2,
+      {
+        require: {
+          FunctionDeclaration: true,
+          MethodDefinition: true,
+          ClassDeclaration: true,
+          ArrowFunctionExpression: false,
+          FunctionExpression: false,
+        },
+      },
+    ],
+    'jsdoc/newline-after-description': 0,
+    'jsdoc/no-undefined-types': 0,
+    'jsdoc/require-param-type': 0,
+    'jsdoc/require-returns-type': 0,
   },
   overrides: [
     {
@@ -32,6 +48,12 @@ module.exports = {
       ],
       env: {
         jest: true,
+      },
+    },
+    {
+      files: ['*.vue'],
+      rules: {
+        'require-jsdoc': 'off',
       },
     },
   ],
