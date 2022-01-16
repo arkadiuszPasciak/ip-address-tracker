@@ -3,17 +3,20 @@
     <h1 class="title">Tracker title</h1>
     <TrackerSearch />
     <TrackerTable />
+    <TrackerMap />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import TrackerMap from '@/components/Tracker/TrackerMap.vue'
 import TrackerSearch from '@/components/Tracker/TrackerSearch.vue'
 import TrackerTable from '@/components/Tracker/TrackerTable.vue'
 
 export default defineComponent({
   name: 'Tracker',
   components: {
+    TrackerMap,
     TrackerSearch,
     TrackerTable,
   },
