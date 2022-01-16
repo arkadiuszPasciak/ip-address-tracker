@@ -1,15 +1,11 @@
 <template>
-  <IPAddressTracker />
+  <div class="IPAddressTracker"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import IPAddressTracker from '@/views/IPAddressTracker.vue'
 
 export default defineComponent({
   name: 'App',
-  components: {
-    IPAddressTracker,
-  },
 })
 </script>
