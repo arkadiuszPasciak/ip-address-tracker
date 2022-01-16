@@ -1,14 +1,19 @@
 <template>
   <div class="Tracker">
     <h1 class="title">Tracker title</h1>
+    <TrackerSearch />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import TrackerSearch from '@/components/Tracker/TrackerSearch.vue'
 
 export default defineComponent({
   name: 'Tracker',
+  components: {
+    TrackerSearch,
+  },
 })
 </script>
 
