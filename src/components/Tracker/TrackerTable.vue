@@ -1,17 +1,27 @@
 <template>
   <ul class="TrackerTable">
-    <ul title="TrackerTable.title.address" text="192.212.174.101" />
-    <ul title="TrackerTable.title.location" text="Brooklyn, USA" />
-    <ul title="TrackerTable.title.timezone" text="UTC -05:00" />
-    <ul title="TrackerTable.title.isp" text="SpaceX Starlink" />
+    <TrackerTableItem
+      title="TrackerTable.title.address"
+      text="192.212.174.101"
+    />
+    <TrackerTableItem
+      title="TrackerTable.title.location"
+      text="Brooklyn, USA"
+    />
+    <TrackerTableItem title="TrackerTable.title.timezone" text="UTC -05:00" />
+    <TrackerTableItem title="TrackerTable.title.isp" text="SpaceX Starlink" />
   </ul>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import TrackerTableItem from '@/components/Tracker/TrackerTableItem.vue'
 
 export default defineComponent({
   name: 'TrackerTable',
+  components: {
+    TrackerTableItem,
+  },
 })
 </script>
 
