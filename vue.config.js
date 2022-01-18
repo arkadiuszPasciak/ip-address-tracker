@@ -12,6 +12,14 @@ module.exports = {
       },
     },
   },
+  pages: {
+    index: {
+      entry: 'src/main.ts',
+      title: 'IP Address Tracker',
+      description: 'Find your location with using IP and check on map',
+      language: 'en',
+    },
+  },
   pluginOptions: {
     i18n: {
       locale: 'en',
