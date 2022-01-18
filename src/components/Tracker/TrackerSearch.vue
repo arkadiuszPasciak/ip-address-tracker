@@ -3,9 +3,9 @@
     <UIInput
       class="tracker-input"
       name="search-ip"
-      placeholder="'TrackerSearch.input.placeholder'"
+      :placeholder="$t('TrackerSearch.input.placeholder')"
     />
-    <UIButton class="tracker-button" name="TrackerSearch.button.name">
+    <UIButton class="tracker-button" :name="$t('TrackerSearch.button.name')">
       <template v-slot:icon-right>
         <UIIcon name="arrow" />
       </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="Tracker">
-    <h1 class="title">Tracker title</h1>
+    <h1 class="title">{{ $t('Tracker.title') }}</h1>
     <TrackerSearch />
     <TrackerTable />
     <TrackerMap />
