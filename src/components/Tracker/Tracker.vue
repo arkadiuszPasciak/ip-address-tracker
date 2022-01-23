@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import $store from '@/store/index'
 import TrackerMap from '@/components/Tracker/TrackerMap.vue'
 import TrackerSearch from '@/components/Tracker/TrackerSearch.vue'
 import TrackerTable from '@/components/Tracker/TrackerTable.vue'
@@ -19,6 +20,10 @@ export default defineComponent({
     TrackerMap,
     TrackerSearch,
     TrackerTable,
+  },
+  $store,
+  created() {
+    $store.state.IPApiService.getIPAddressData('83.97.23.105')
   },
 })
 </script>

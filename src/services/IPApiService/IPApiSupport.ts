@@ -1,11 +1,13 @@
+import { Ref } from 'vue'
+
 export interface IIPAddressData {
   query: string
   status: string
-  countryCode: string
   region: string
   city: string
   lat: string
   lon: string
+  isp: string
 }
 
 export interface IIPApiServiceState {
