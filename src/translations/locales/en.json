@@ -4,7 +4,7 @@
   "TrackerSearch.button.name": "Find your location",
   "TrackerSearch.input.placeholder": "Search for any IP address or domain",
 
-  "TrackerTable.title.address": "IP Address",
+  "TrackerTable.title.ipAddress": "IP Address",
   "TrackerTable.title.isp": "ISP",
   "TrackerTable.title.location": "Location",
   "TrackerTable.title.timezone": "Timezone"

@@ -1,32 +1,55 @@
 <template>
   <ul class="TrackerTable">
-    <TrackerTableItem
-      :title="$t('TrackerTable.title.address')"
-      text="192.212.174.101"
-    />
-    <TrackerTableItem
-      :title="$t('TrackerTable.title.location')"
-      text="Brooklyn, USA"
-    />
-    <TrackerTableItem
-      :title="$t('TrackerTable.title.timezone')"
-      text="UTC -05:00"
-    />
-    <TrackerTableItem
-      :title="$t('TrackerTable.title.isp')"
-      text="SpaceX Starlink"
-    />
+    <template v-if="state.isLoading">isLoading</template>
+
+    <template v-else>
+      <TrackerTableItem
+        :title="$t('TrackerTable.title.ipAddress')"
+        :text="state.address?.query ?? ''"
+      />
+      <TrackerTableItem
+        :title="$t('TrackerTable.title.location')"
+        :text="`${state.address?.city}, ${state.address?.country}` ?? ''"
+      />
+      <TrackerTableItem
+        :title="$t('TrackerTable.title.timezone')"
+        :text="state.address?.timezone ?? ''"
+      />
+      <TrackerTableItem
+        :title="$t('TrackerTable.title.isp')"
+        :text="state.address?.isp ?? ''"
+      />
+    </template>
   </ul>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 import TrackerTableItem from '@/components/Tracker/TrackerTableItem.vue'
+import $store from '@/store/index'
 
 export default defineComponent({
   name: 'TrackerTable',
   components: {
     TrackerTableItem,
+  },
+  $store,
+  setup() {
+    const state = ref({
+      isLoading: true,
+      address: $store.state.IPApiService.state.ipAddressData,
+    })
+
+    watch($store.state.IPApiService, (value) => {
+      if (value.state.ipAddressData !== null) {
+        state.value.isLoading = false
+        state.value.address = value.state.ipAddressData
+      }
+    })
+
+    return {
+      state,
+    }
   },
 })
 </script>
