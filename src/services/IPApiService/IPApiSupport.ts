@@ -1,5 +1,3 @@
-import { Ref } from 'vue'
-
 export interface IIPAddressData {
   query: string
   status: string
