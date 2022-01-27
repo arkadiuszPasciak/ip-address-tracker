@@ -1,17 +1,53 @@
 <template>
   <div class="TrackerMap">
-    <GoogleMap />
+    <div v-if="state.isLoading">isLoading</div>
+    <div v-else class="map" ref="trackerMap"></div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import GoogleMap from '@/components/GoogleMap/GoogleMap.vue'
+import { defineComponent, nextTick, ref, watch } from 'vue'
+import $store from '@/store/index'
+import { IGoogleMapsCoords } from '@/services/GoogleMapsService/GoogleMapsSupport'
 
 export default defineComponent({
   name: 'TrackerMap',
-  components: {
-    GoogleMap,
+  $store,
+  $refs: {
+    trackerMap: HTMLElement,
+  },
+  setup() {
+    const state = ref({
+      isLoading: true,
+      latitude: $store.state.IPApiService.state.ipAddressData?.lat ?? null,
+      longitude: $store.state.IPApiService.state.ipAddressData?.lon ?? null,
+    })
+
+    const trackerMap = ref()
+
+    function initMap(coords: IGoogleMapsCoords, map: HTMLElement) {
+      $store.state.GoogleMapsService.initGoogleMap(coords, map)
+    }
+
+    watch($store.state.IPApiService, (value) => {
+      if (value.state.ipAddressData !== null) {
+        const geolocationCoords = {
+          latitude: Number(value.state.ipAddressData.lat),
+          longitude: Number(value.state.ipAddressData.lon),
+        }
+
+        nextTick(() => {
+          initMap(geolocationCoords, trackerMap.value)
+        })
+
+        state.value.isLoading = false
+      }
+    })
+
+    return {
+      state,
+      trackerMap,
+    }
   },
 })
 </script>
@@ -29,6 +65,11 @@ export default defineComponent({
     bottom: 0;
     margin: 0 -25px;
     height: 60%;
+    width: 100%;
+  }
+
+  .map {
+    height: 100%;
     width: 100%;
   }
 }
