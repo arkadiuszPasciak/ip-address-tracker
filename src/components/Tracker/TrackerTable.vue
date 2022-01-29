@@ -1,6 +1,6 @@
 <template>
   <ul class="TrackerTable">
-    <template v-if="state.isLoading">isLoading</template>
+    <UILoader v-if="state.isLoading" class="loader" />
 
     <template v-else>
       <TrackerTableItem
@@ -26,12 +26,14 @@
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue'
 import TrackerTableItem from '@/components/Tracker/TrackerTableItem.vue'
+import UILoader from '@/components/UI/UILoader.vue'
 import $store from '@/store/index'
 
 export default defineComponent({
   name: 'TrackerTable',
   components: {
     TrackerTableItem,
+    UILoader,
   },
   $store,
   setup() {
