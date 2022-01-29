@@ -1,6 +1,6 @@
 <template>
   <div class="TrackerMap">
-    <div v-if="state.isLoading">isLoading</div>
+    <UILoader v-if="state.isLoading" />
     <div v-else class="map" ref="trackerMap"></div>
   </div>
 </template>
@@ -9,13 +9,14 @@
 import { defineComponent, nextTick, ref, watch } from 'vue'
 import $store from '@/store/index'
 import { IGoogleMapsCoords } from '@/services/GoogleMapsService/GoogleMapsSupport'
+import UILoader from '@/components/UI/UILoader.vue'
 
 export default defineComponent({
   name: 'TrackerMap',
-  $store,
-  $refs: {
-    trackerMap: HTMLElement,
+  components: {
+    UILoader,
   },
+  $store,
   setup() {
     const state = ref({
       isLoading: true,
@@ -54,6 +55,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .TrackerMap {
+  background-color: rgba($cl-black, 0.6);
+
   @include media('<=tablet') {
     margin: -25px -10px -10px;
     height: 400px;
