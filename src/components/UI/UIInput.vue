@@ -5,6 +5,8 @@
     :name="name"
     type="text"
     :placeholder="placeholder"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
   />
 </template>
 
@@ -24,6 +26,11 @@ export default defineComponent({
     },
     placeholder: {
       type: String,
+      required: true,
+    },
+    modelValue: {
+      type: String,
+      default: '',
       required: true,
     },
   },

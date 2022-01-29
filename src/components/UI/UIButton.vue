@@ -28,6 +28,10 @@ export default defineComponent({
 .UIButton {
   padding: 5px;
 
+  @include hover(hover) {
+    cursor: pointer;
+  }
+
   &.primary {
     background-color: $cl-black;
     color: $cl-white;
