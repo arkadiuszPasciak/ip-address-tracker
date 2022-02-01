@@ -13,6 +13,7 @@ export default class IPApiService {
 
   public state: IIPApiServiceState = {
     ipAddressData: null,
+    isError: false,
   }
 
   /**
@@ -21,6 +22,8 @@ export default class IPApiService {
    * @returns Change ip address information in state.
    */
   public async getIPAddressData(ipAddress: string): Promise<void> {
+    this.state.isError = false
+
     try {
       const response = await this.gIPApiRepository.getIPAddress(ipAddress)
 
@@ -29,6 +32,8 @@ export default class IPApiService {
       }
     } catch (error) {
       console.warn(`IPApiService:getIPAddressData: ${error}`)
+
+      this.state.isError = true
     }
   }
 }

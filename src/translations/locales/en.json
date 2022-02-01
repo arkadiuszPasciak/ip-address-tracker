@@ -7,5 +7,7 @@
   "TrackerTable.title.ipAddress": "IP Address",
   "TrackerTable.title.isp": "ISP",
   "TrackerTable.title.location": "Location",
-  "TrackerTable.title.timezone": "Timezone"
+  "TrackerTable.title.timezone": "Timezone",
+
+  "UIError.text": "IP Address Could Not Be Found"
 }
