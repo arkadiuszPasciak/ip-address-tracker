@@ -1,8 +1,10 @@
 <template>
   <ul class="TrackerTable">
-    <UILoader v-if="state.isLoading" class="loader" />
+    <UILoader v-if="state.isLoading" />
 
-    <template v-else>
+    <UIError v-else-if="state.isError" />
+
+    <template v-else-if="state.address">
       <TrackerTableItem
         :title="$t('TrackerTable.title.ipAddress')"
         :text="state.address?.query ?? ''"
@@ -26,6 +28,7 @@
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue'
 import TrackerTableItem from '@/components/Tracker/TrackerTableItem.vue'
+import UIError from '@/components/UI/UIError.vue'
 import UILoader from '@/components/UI/UILoader.vue'
 import $store from '@/store/index'
 
@@ -33,20 +36,30 @@ export default defineComponent({
   name: 'TrackerTable',
   components: {
     TrackerTableItem,
+    UIError,
     UILoader,
   },
   $store,
   setup() {
     const state = ref({
+      isError: false,
       isLoading: true,
       address: $store.state.IPApiService.state.ipAddressData,
     })
 
     watch($store.state.IPApiService, (value) => {
+      state.value.isError = false
+      state.value.isLoading = true
+
       if (value.state.ipAddressData !== null) {
-        state.value.isLoading = false
         state.value.address = value.state.ipAddressData
       }
+
+      if (value.state.isError === true) {
+        state.value.isError = true
+      }
+
+      state.value.isLoading = false
     })
 
     return {

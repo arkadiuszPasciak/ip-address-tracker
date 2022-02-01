@@ -1,6 +1,9 @@
 <template>
   <div class="TrackerMap">
     <UILoader v-if="state.isLoading" />
+
+    <UIError v-if="state.isError" />
+
     <div v-else class="map" ref="trackerMap"></div>
   </div>
 </template>
@@ -9,16 +12,19 @@
 import { defineComponent, nextTick, ref, watch } from 'vue'
 import $store from '@/store/index'
 import { IGoogleMapsCoords } from '@/services/GoogleMapsService/GoogleMapsSupport'
+import UIError from '@/components/UI/UIError.vue'
 import UILoader from '@/components/UI/UILoader.vue'
 
 export default defineComponent({
   name: 'TrackerMap',
   components: {
+    UIError,
     UILoader,
   },
   $store,
   setup() {
     const state = ref({
+      isError: false,
       isLoading: true,
       latitude: $store.state.IPApiService.state.ipAddressData?.lat ?? null,
       longitude: $store.state.IPApiService.state.ipAddressData?.lon ?? null,
@@ -31,6 +37,9 @@ export default defineComponent({
     }
 
     watch($store.state.IPApiService, (value) => {
+      state.value.isError = false
+      state.value.isLoading = true
+
       if (value.state.ipAddressData !== null) {
         const geolocationCoords = {
           latitude: Number(value.state.ipAddressData.lat),
@@ -40,9 +49,13 @@ export default defineComponent({
         nextTick(() => {
           initMap(geolocationCoords, trackerMap.value)
         })
-
-        state.value.isLoading = false
       }
+
+      if (value.state.isError === true) {
+        state.value.isError = true
+      }
+
+      state.value.isLoading = false
     })
 
     return {
