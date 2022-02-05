@@ -9,6 +9,7 @@
     />
     <UIButton
       class="tracker-button"
+      :class="{ 'is-disabled': !valueInput.length }"
       :name="$t('TrackerSearch.button.name')"
       @click="getIPAddressData"
     >
