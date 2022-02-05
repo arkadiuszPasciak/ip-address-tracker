@@ -46,5 +46,14 @@ export default defineComponent({
       }
     }
   }
+
+  &.is-disabled {
+    background-color: rgba($cl-gray-light, 0.5);
+    pointer-events: none;
+
+    @include hover(hover) {
+      cursor: not-allowed;
+    }
+  }
 }
 </style>
