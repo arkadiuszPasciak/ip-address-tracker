@@ -19,7 +19,7 @@ export default defineComponent({
   height: 100%;
   justify-content: center;
   align-items: center;
-  color: $cl-red-pastel;
+  color: $cl-white;
 
   @include media('<=tablet') {
     font: $font-bold 24px/28px $font-rubik;

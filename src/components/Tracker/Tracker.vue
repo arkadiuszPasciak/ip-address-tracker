@@ -30,7 +30,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .Tracker {
-  background: linear-gradient(0.8turn, $cl-red-pastel, $cl-purple-light);
+  background-color: $cl-black;
 
   @include media('<=tablet') {
     padding: 10px;
@@ -47,7 +47,7 @@ export default defineComponent({
     text-align: center;
 
     @include media('<=tablet') {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       font: $font-bold 24px/28px $font-rubik;
     }
 
