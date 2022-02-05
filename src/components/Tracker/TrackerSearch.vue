@@ -5,6 +5,7 @@
       name="search-ip"
       :placeholder="$t('TrackerSearch.input.placeholder')"
       v-model="valueInput"
+      mask="ipAddress"
     />
     <UIButton
       class="tracker-button"
