@@ -6,12 +6,15 @@
     type="text"
     :placeholder="placeholder"
     :value="modelValue"
+    v-maska="maskInput"
+    :maxlength="maxLength"
     @input="$emit('update:modelValue', $event.target.value)"
   />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { masks, EMasks } from '@/utils/masks'
 
 export default defineComponent({
   name: 'UIInput',
@@ -33,6 +36,24 @@ export default defineComponent({
       default: '',
       required: true,
     },
+    mask: {
+      type: String,
+      default: '',
+    },
+  },
+  setup(props) {
+    let maskInput = null
+    let maxLength = null
+
+    if (props.mask === EMasks.IP_ADDRESS) {
+      maskInput = masks.ipAddress
+      maxLength = 15
+    }
+
+    return {
+      maskInput,
+      maxLength,
+    }
   },
 })
 </script>
