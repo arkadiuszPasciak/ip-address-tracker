@@ -19,17 +19,31 @@ export default class GoogleMapsService {
    */
   public async initGoogleMap(
     coords: IGoogleMapsCoords,
-    mapHTMLElement: HTMLElement
+    mapHTMLElement: HTMLElement,
+    stylesMapSettings: google.maps.MapTypeStyle[]
   ): Promise<void> {
     await this.loaderSettings
       .load()
       .then((google) => {
-        new google.maps.Map(mapHTMLElement, {
+        const map = new google.maps.Map(mapHTMLElement, {
           center: {
             lat: coords.latitude,
             lng: coords.longitude,
           },
           zoom: 8,
+          zoomControl: false,
+          fullscreenControl: false,
+          scrollwheel: false,
+          gestureHandling: 'none',
+          styles: stylesMapSettings,
+        })
+
+        new google.maps.Marker({
+          position: {
+            lat: coords.latitude,
+            lng: coords.longitude,
+          },
+          map,
         })
       })
       .catch((error: string) => {

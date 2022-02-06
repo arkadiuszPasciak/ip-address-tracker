@@ -11,7 +11,10 @@
 <script lang="ts">
 import { defineComponent, nextTick, ref, watch } from 'vue'
 import $store from '@/store/index'
-import { IGoogleMapsCoords } from '@/services/GoogleMapsService/GoogleMapsSupport'
+import {
+  IGoogleMapsCoords,
+  stylesMapSettings,
+} from '@/services/GoogleMapsService/GoogleMapsSupport'
 import UIError from '@/components/UI/UIError.vue'
 import UILoader from '@/components/UI/UILoader.vue'
 
@@ -33,7 +36,11 @@ export default defineComponent({
     const trackerMap = ref()
 
     function initMap(coords: IGoogleMapsCoords, map: HTMLElement) {
-      $store.state.GoogleMapsService.initGoogleMap(coords, map)
+      $store.state.GoogleMapsService.initGoogleMap(
+        coords,
+        map,
+        stylesMapSettings
+      )
     }
 
     watch($store.state.IPApiService, (value) => {
