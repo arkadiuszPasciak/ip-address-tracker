@@ -24,6 +24,11 @@ export default class IPApiService {
   public async getIPAddressData(ipAddress: string): Promise<void> {
     this.state.isError = false
 
+    if (ipAddress === '') {
+      this.state.isError = true
+      return
+    }
+
     try {
       const response = await this.gIPApiRepository.getIPAddress(ipAddress)
 

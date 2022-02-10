@@ -1,7 +1,6 @@
 export interface IIPAddressData {
   query: string
   status: string
-  region: string
   city: string
   lat: string
   lon: string
