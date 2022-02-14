@@ -11,6 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@googlemaps/jest-mocks": "^2.4.0",
     "@googlemaps/js-api-loader": "^1.13.2",
     "@types/google.maps": "^3.47.3",
     "axios": "^0.24.0",
