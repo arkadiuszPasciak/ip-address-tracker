@@ -1,14 +1,21 @@
 import { mount } from '@vue/test-utils'
 import UILoader from '@/components/UI/UILoader.vue'
 
+const settings = {
+  mainClass: 'UILoader',
+  animationClass: '.animation',
+}
+
 const wrapper = mount(UILoader)
 
 describe('[UILoader.vue]', () => {
-  it('should have classes', () => {
-    expect(wrapper.classes('UILoader')).toBe(true)
+  it('should have attributes', () => {
+    expect(wrapper.attributes()).toEqual({
+      class: settings.mainClass,
+    })
   })
 
   it('should have child div', () => {
-    expect(wrapper.find('.animation').exists()).toBe(true)
+    expect(wrapper.find(settings.animationClass).exists()).toBe(true)
   })
 })

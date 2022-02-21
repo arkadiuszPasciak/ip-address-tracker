@@ -1,27 +1,26 @@
 import { shallowMount } from '@vue/test-utils'
 import UIButton from '@/components/UI/UIButton.vue'
 
-const text = 'Find your location'
+const settings = {
+  name: 'Find your location',
+  mainClass: 'UIButton',
+  modifierClass: 'primary',
+  type: 'button',
+}
 
 const wrapper = shallowMount(UIButton, {
   props: {
-    name: text,
-    modifier: 'primary',
+    name: settings.name,
+    modifier: settings.modifierClass,
   },
 })
 
 describe('[UIButton.vue]', () => {
-  it('should have aria label attribute', () => {
-    expect(wrapper.attributes('aria-label')).toBe(text)
-  })
-
-  it('should have button type attribute', () => {
-    expect(wrapper.attributes('type')).toBe('button')
-  })
-
-  it('should have classes', () => {
-    expect(wrapper.classes('UIButton')).toBe(true)
-
-    expect(wrapper.classes('primary')).toBe(true)
+  it('should have attributes', () => {
+    expect(wrapper.attributes()).toEqual({
+      class: `${settings.mainClass} ${settings.modifierClass}`,
+      ['aria-label']: settings.name,
+      type: settings.type,
+    })
   })
 })
