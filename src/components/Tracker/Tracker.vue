@@ -33,7 +33,7 @@ export default defineComponent({
   background-color: $cl-black;
 
   @include media('<=tablet') {
-    padding: 10px;
+    padding: 20px 10px;
   }
 
   @include media('>=tablet') {

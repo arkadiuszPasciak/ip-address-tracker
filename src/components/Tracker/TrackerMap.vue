@@ -2,7 +2,7 @@
   <div class="TrackerMap">
     <UILoader v-if="state.isLoading" />
 
-    <UIError v-if="state.isError" />
+    <UIError v-else-if="state.isError" />
 
     <div v-else class="map" ref="trackerMap"></div>
   </div>
