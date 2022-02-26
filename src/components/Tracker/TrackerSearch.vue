@@ -9,12 +9,13 @@
     />
     <UIButton
       class="tracker-button"
-      :class="{ 'is-disabled': !valueInput.length }"
+      :class="{ 'is-disabled': valueInput.length < 4 }"
+      :disabled="valueInput.length < 4"
       :name="$t('TrackerSearch.button.name')"
       @click="getIPAddressData"
     >
       <template v-slot:icon-right>
-        <UIIcon name="arrow" />
+        <UIIcon class="tracker-icon" name="arrow" />
       </template>
     </UIButton>
   </div>
