@@ -7,19 +7,22 @@
     <template v-else-if="state.address">
       <TrackerTableItem
         :title="$t('TrackerTable.title.ipAddress')"
-        :text="state.address?.query ?? ''"
+        :text="state.address?.query ?? $t('TrackerTable.text.unknown')"
       />
       <TrackerTableItem
         :title="$t('TrackerTable.title.location')"
-        :text="`${state.address?.city}, ${state.address?.country}` ?? ''"
+        :text="
+          `${state.address?.city}, ${state.address?.country}` ??
+          $t('TrackerTable.text.unknown')
+        "
       />
       <TrackerTableItem
         :title="$t('TrackerTable.title.timezone')"
-        :text="state.address?.timezone ?? ''"
+        :text="state.address?.timezone ?? $t('TrackerTable.text.unknown')"
       />
       <TrackerTableItem
         :title="$t('TrackerTable.title.isp')"
-        :text="state.address?.isp ?? ''"
+        :text="state.address?.isp ?? $t('TrackerTable.text.unknown')"
       />
     </template>
   </ul>
