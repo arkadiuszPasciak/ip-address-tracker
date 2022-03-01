@@ -42,7 +42,7 @@ $border-line: 1px solid $cl-gray-light;
   }
 
   &:not(:last-child) {
-    @include media('<=tablet') {
+    @include media('<tablet') {
       border-bottom: $border-line;
     }
 

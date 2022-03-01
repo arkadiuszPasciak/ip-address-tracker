@@ -2,7 +2,7 @@
   <ul class="TrackerTable">
     <UILoader v-if="state.isLoading" />
 
-    <UIError v-else-if="state.isError" />
+    <UIError v-else-if="state.isError" class="error" />
 
     <template v-else-if="state.address">
       <TrackerTableItem
@@ -76,7 +76,7 @@ export default defineComponent({
 @mixin line($position: 'vertical') {
   content: '';
   position: absolute;
-  background: $cl-gray-light;
+  background-color: $cl-gray-light;
 
   @if $position == 'vertical' {
     top: 25px;
@@ -100,16 +100,16 @@ export default defineComponent({
   z-index: 2;
   border-radius: 20px;
   width: 100%;
-  background: $cl-white;
+  background-color: $cl-white;
 
   &::before {
-    @include media('>=tablet', '<=desktop') {
+    @include media('>=tablet', '<desktop') {
       @include line($position: 'vertical');
     }
   }
 
   &::after {
-    @include media('>=tablet', '<=desktop') {
+    @include media('>=tablet', '<desktop') {
       @include line($position: 'horizontal');
     }
   }
@@ -140,6 +140,10 @@ export default defineComponent({
     grid-template-rows: 175px;
     max-width: 1200px;
     top: 100px;
+  }
+
+  .error {
+    color: $cl-black;
   }
 }
 </style>

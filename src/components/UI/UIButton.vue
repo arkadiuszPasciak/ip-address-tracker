@@ -33,9 +33,8 @@ export default defineComponent({
   }
 
   &.primary {
-    background-color: rgba($cl-gray-light, 0.5);
+    background-color: $cl-gray-light;
     color: $cl-white;
-
     @include hover(hover) {
       transition: background-color 0.3s ease-in-out;
     }
@@ -48,7 +47,7 @@ export default defineComponent({
   }
 
   &.is-disabled {
-    background-color: $cl-gray-light;
+    background-color: rgba($cl-gray-light, 0.5);
     pointer-events: none;
 
     @include hover(hover) {

@@ -75,7 +75,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .TrackerMap {
-  background-color: rgba($cl-black, 0.6);
+  background-color: $cl-gray-light;
 
   @include media('<=tablet') {
     margin: -25px -10px -10px;
