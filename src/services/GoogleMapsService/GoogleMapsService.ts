@@ -15,6 +15,7 @@ export default class GoogleMapsService {
    * Init google map.
    * @param coords Geolocation coords.
    * @param mapHTMLElement HTMLElement of map.
+   * @param stylesMapSettings styles of map.
    * @returns promise.
    */
   public async initGoogleMap(
