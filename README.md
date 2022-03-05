@@ -1,6 +1,6 @@
 # IP Address Tracker
 
-This is a JavaScript application powered by ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) and ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) to search location by ip address
+This is a ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) application powered by ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) and ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) to search location by ip address
 
 ![view of project](https://i.ibb.co/zrPqJ8n/Zrzut-ekranu-z-2022-03-05-11-30-11.png)
 
@@ -36,4 +36,4 @@ npm run test:unit
 ##  Licenses
 - [Google Fonts](https://developers.google.com/fonts/ "Google Fonts")
 - [Flaticon](https://www.flaticon.com/ "Flaticon")
-- [https://ip-api.com/](https://ip-api.com/ "IP-API")
+- [IP-API](https://ip-api.com/ "IP-API")
