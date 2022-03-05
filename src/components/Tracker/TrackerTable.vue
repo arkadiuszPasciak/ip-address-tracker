@@ -73,25 +73,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@mixin line($position: 'vertical') {
-  content: '';
-  position: absolute;
-  background-color: $cl-gray-light;
-
-  @if $position == 'vertical' {
-    top: 25px;
-    left: 50%;
-    width: 1px;
-    height: calc(100% - 50px);
-  }
-
-  @if $position == 'horizontal' {
-    top: 50%;
-    left: 25px;
-    width: calc(100% - 50px);
-    height: 1px;
-  }
-}
+@import '@/assets/styles/utils/_mixins.scss';
 
 .TrackerTable {
   display: grid;
