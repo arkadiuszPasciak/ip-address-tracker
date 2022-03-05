@@ -5,6 +5,8 @@ export interface IIPAddressData {
   lat: string
   lon: string
   isp: string
+  country: string
+  timezone: string
 }
 
 export interface IIPApiServiceState {
