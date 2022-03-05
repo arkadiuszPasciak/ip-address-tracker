@@ -47,7 +47,7 @@ export default defineComponent({
       state.value.isError = false
       state.value.isLoading = true
 
-      if (value.state.ipAddressData !== null) {
+      if (value.state.ipAddressData) {
         const geolocationCoords = {
           latitude: Number(value.state.ipAddressData.lat),
           longitude: Number(value.state.ipAddressData.lon),
@@ -58,7 +58,7 @@ export default defineComponent({
         })
       }
 
-      if (value.state.isError === true) {
+      if (value.state.isError) {
         state.value.isError = true
       }
 

@@ -54,11 +54,11 @@ export default defineComponent({
       state.value.isError = false
       state.value.isLoading = true
 
-      if (value.state.ipAddressData !== null) {
+      if (value.state.ipAddressData) {
         state.value.address = value.state.ipAddressData
       }
 
-      if (value.state.isError === true) {
+      if (value.state.isError) {
         state.value.isError = true
       }
 
